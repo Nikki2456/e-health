@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - E-Health Advisor</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function submitForm() {
+            var name = document.getElementById("name").value;
+            var age = document.getElementById("age").value;
+            var gender = document.getElementById("gender").value;
+            var symptoms = document.getElementById("symptoms").value;
+
+            var diagnosis = "";
+            var prescription = "";
+
+            // Simple logic for demonstration purposes
+            if (symptoms.toLowerCase().includes("fever")) {
+                diagnosis = "You have a fever.";
+                prescription = "Take Dolo 650 (paracetamol) daily 2 times for 3 days.";
+            } else {
+                diagnosis = "No specific diagnosis based on symptoms.";
+                prescription = "Consult a healthcare professional for further evaluation.";
+            }
+
+            document.getElementById("diagnosis").innerText = diagnosis;
+            document.getElementById("prescription").innerText = prescription;
+
+            // Show the diagnosis and prescription fields
+            document.getElementById("diagnosisSection").style.display = "block";
+            document.getElementById("prescriptionSection").style.display = "block";
+        }
+    </script>
+    <style>
+        /* Additional CSS for hiding diagnosis and prescription sections initially */
+        #diagnosisSection, #prescriptionSection {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="E-Health Advisor Logo" class="logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="medicine.html">Medicine</a></li>
+                <li><a href="login.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content">
+        <h1>Welcome to E-Health Advisor Dashboard</h1>
+        <p>You are logged in.</p>
+
+        <h2>Health Form</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter Name" required><br><br>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" placeholder="Enter Age" required><br><br>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select><br><br>
+
+            <label for="symptoms">Symptoms:</label><br>
+            <textarea id="symptoms" name="symptoms" rows="4" cols="50" placeholder="Enter Symptoms" required></textarea><br><br>
+
+            <input type="button" value="Submit" onclick="submitForm()">
+
+            <!-- Diagnosis Section (Hidden initially) -->
+            <div id="diagnosisSection">
+                <h3>Diagnosis:</h3>
+                <p id="diagnosis"></p>
+            </div>
+
+            <!-- Prescription Section (Hidden initially) -->
+            <div id="prescriptionSection">
+                <h3>Prescription:</h3>
+                <p id="prescription"></p>
+            </div>
+        </form>
+    </div><br
+
+    <footer>
+        <p>&copy; 2024 E-Health Advisor</p>
+    </footer>
+</body>
+</html>
